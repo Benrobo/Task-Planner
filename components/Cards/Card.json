@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "title": "Some dummy title",
+        "date": "12/04/2021"
+    },
+    {
+        "id": 2,
+        "title": "Learn react native",
+        "date": "12/04/2021"
+    },
+    {
+        "id": 3,
+        "title": "Master Nodejs Architecture",
+        "date": "12/04/2021"
+    }
+]

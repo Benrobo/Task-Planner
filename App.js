@@ -1,21 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { ThemeProvider } from 'styled-components/native';
+import { NativeRouter, Routes, Route, Link } from "react-router-native"
+import { Container } from './components/styled/Container';
+import Home from './Screens/Home'
+import About from './Screens/About'
+import AddTask from './Screens/AddTask'
+import theme from './components/styled/Theme';
+import Navigation from './components/Navbar/Navigation'
+import TopHeader from './components/Header/Header';
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={theme}>
+      <Container style={StyleSheet.navcontainer}>
+        <StatusBar backgroundColor={theme.statusBg} />
+        {/* <TopHeader /> */}
+        <NativeRouter>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/add" element={<AddTask />} />
+          </Routes>
+          <Navigation theme={theme} />
+        </NativeRouter>
+        {/* <StatusBar style="auto" /> */}
+      </Container>
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
